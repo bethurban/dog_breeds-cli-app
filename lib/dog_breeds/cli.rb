@@ -3,10 +3,14 @@ class DogBreeds::CLI
   def call
     puts "Welcome! Which group of American Kennel Club dog breeds are you interested in?"
     list_groups
+    group = gets.strip
+    list_breeds(group)
+    breed = gets.strip
+    breed_info(breed)
   end
 
   def list_groups
-    #Will scrape scrape groups
+    #Will scrape scrape group names
     puts <<-DOC
       1. Sporting group
       2. Hound group
@@ -18,5 +22,46 @@ class DogBreeds::CLI
       8. Miscellaneous class
       9. Foundation Stock Service
     DOC
+  end
+
+  def list_breeds(group)
+    puts "Which breed would you like to learn more about?"
+    if group == "1"
+      puts <<-DOC
+        1. American water spaniel
+        2. Boykin spaniel
+        3. Brittany
+        4. Chesapeake Bay retriever
+        5. Clumber spaniel
+        6. Cocker spaniel
+        7. Curly-coated retriever
+        8. English cocker spaniel
+        9. English setter
+        10. English springer spaniel
+        11. Field spaniel
+        12. Flat-coated retriever
+        13. German shorthaired pointer
+        14. German wirehaired pointer
+        15. Golden retriever
+        16. Gordon setter
+        17. Irish red and white setter
+        18. Irish setter
+        19. Irish water spaniel
+        20. Labrador retriever
+        21. Lagotto romagnolo
+        22. Nova Scotia duck tolling retriever
+        23. Pointer
+        24. Spinone Italiano
+        25. Sussex spaniel
+        26. Vizsla
+        27. Weimaraner
+        28. Welsh springer spaniel
+        29. Wirehaired pointing griffon
+        30. Wirehaired vizsla
+      DOC
+    end
+  end
+
+  def breed_info(breed)
   end
 end
