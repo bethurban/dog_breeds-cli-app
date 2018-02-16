@@ -1,17 +1,14 @@
 class DogBreeds::CLI
 
   def call
-    puts "Welcome! Which group of American Kennel Club dog breeds are you interested in?"
     list_groups
-    group = gets.strip
-    list_breeds(group)
-    breed = gets.strip
-    breed_info(breed)
-
+    list_breeds
+    breed_info
   end
 
   def list_groups
     #Will scrape scrape group names
+    puts "Welcome! Which group of American Kennel Club dog breeds are you interested in?"
     puts <<~DOC
       1. Sporting group
       2. Hound group
@@ -25,10 +22,12 @@ class DogBreeds::CLI
     DOC
   end
 
-  def list_breeds(group)
+  def list_breeds
     #Will scrape breeds in chosen group
-    puts "Which breed would you like to learn more about?"
-    if group == "1"
+    puts "Which group of breeds would you like to see?"
+    input = gets.strip
+    case input
+    when "1"
       puts <<~DOC
         1. American water spaniel
         2. Boykin spaniel
@@ -64,9 +63,12 @@ class DogBreeds::CLI
     end
   end
 
-  def breed_info(breed)
+  def breed_info
     #Will scrape info from breed's page
-    if breed == "1"
+    puts "Which breed would you like more information on?"
+    input = gets.strip
+    case input
+    when "1"
       puts <<~DOC
       American water spaniel
 
