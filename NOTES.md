@@ -5,4 +5,4 @@
 3. Gets numbered list of breeds.
 4. Chooses breed using number.
 5. Gets list of info on breed.
-6. Can return to list of breeds in group, list of groups, or exit.
+6. Can return to list of groups or exit.
