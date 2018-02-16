@@ -7,11 +7,12 @@ class DogBreeds::CLI
     list_breeds(group)
     breed = gets.strip
     breed_info(breed)
+
   end
 
   def list_groups
     #Will scrape scrape group names
-    puts <<-DOC
+    puts <<~DOC
       1. Sporting group
       2. Hound group
       3. Working group
@@ -25,9 +26,10 @@ class DogBreeds::CLI
   end
 
   def list_breeds(group)
+    #Will scrape breeds in chosen group
     puts "Which breed would you like to learn more about?"
     if group == "1"
-      puts <<-DOC
+      puts <<~DOC
         1. American water spaniel
         2. Boykin spaniel
         3. Brittany
@@ -63,5 +65,23 @@ class DogBreeds::CLI
   end
 
   def breed_info(breed)
+    #Will scrape info from breed's page
+    if breed == "1"
+      puts <<~DOC
+      American water spaniel
+
+      Personality: Happy, eager, and charming; aloof with strangers, and a little stubborn
+      Energy Level: Very Active; Upbeat AWS are outdoorsy athletes who love hunting and swimming
+      Good with Children: Better with Supervision
+      Good with other Dogs: With Supervision
+      Shedding: Infrequent
+      Grooming: Weekly
+      Trainability: Eager To Please
+      Height: 15-18 inches
+      Weight: 30-45 pounds (male), 25-40 pounds (female)
+      Life Expectancy: 10-14 years
+      Barking Level: Barks When Necessary
+      DOC
+    end
   end
 end
