@@ -1,5 +1,2 @@
-require "dog_breeds/version"
-
-module DogBreeds
-  # Your code goes here...
-end
+require_relative './dog_breeds/version'
+require_relative './dog_breeds/cli'
