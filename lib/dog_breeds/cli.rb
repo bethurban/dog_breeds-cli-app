@@ -2,6 +2,7 @@ class DogBreeds::CLI
 
   def call
     input = nil
+    puts "Welcome!"
     while input != "N"
       list_groups
       list_breeds
@@ -14,7 +15,7 @@ class DogBreeds::CLI
 
   def list_groups
     #Will scrape scrape group names
-    puts "Welcome! Which group of American Kennel Club dog breeds are you interested in?"
+    puts "These are the American Kennel Club's groups of dog breeds:"
     puts <<~DOC
       1. Sporting group
       2. Hound group
@@ -66,6 +67,10 @@ class DogBreeds::CLI
         29. Wirehaired pointing griffon
         30. Wirehaired vizsla
       DOC
+    else
+      puts "Invalid entry. Please enter the number of the group you'd like to see."
+      list_groups
+      list_breeds
     end
   end
 
@@ -76,7 +81,7 @@ class DogBreeds::CLI
     case input
     when "1"
       puts <<~DOC
-      American water spaniel
+      American water spaniel:
 
       Personality: Happy, eager, and charming; aloof with strangers, and a little stubborn
       Energy Level: Very Active; Upbeat AWS are outdoorsy athletes who love hunting and swimming
@@ -90,6 +95,9 @@ class DogBreeds::CLI
       Life Expectancy: 10-14 years
       Barking Level: Barks When Necessary
       DOC
+    else
+      puts "Invalid entry. Please enter the number of the breed you'd like to learn about."
+      breed_info
     end
   end
 
