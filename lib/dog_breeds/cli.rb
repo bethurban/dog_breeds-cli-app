@@ -1,9 +1,15 @@
 class DogBreeds::CLI
 
   def call
-    list_groups
-    list_breeds
-    breed_info
+    input = nil
+    while input != "N"
+      list_groups
+      list_breeds
+      breed_info
+      puts "Do you want to learn about another breed? (Y/N)"
+      input = gets.strip.upcase
+    end
+    goodbye
   end
 
   def list_groups
@@ -85,5 +91,9 @@ class DogBreeds::CLI
       Barking Level: Barks When Necessary
       DOC
     end
+  end
+
+  def goodbye
+    puts "Woof! See you next time!"
   end
 end
