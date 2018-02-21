@@ -25,4 +25,10 @@ class DogBreeds::Groups
     9. #{group_9}
     DOC
   end
+
+  def self.scrape_groups
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/"))
+    binding.pry
+  end
+
 end

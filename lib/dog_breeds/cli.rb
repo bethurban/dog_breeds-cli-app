@@ -7,6 +7,7 @@ class DogBreeds::CLI
       list_groups
       list_breeds
       breed_info
+      puts ""
       puts "Do you want to learn about another breed? (Y/N)"
       input = gets.strip.upcase
     end
@@ -69,6 +70,7 @@ class DogBreeds::CLI
     case input
     when "1"
       puts <<~DOC
+      
       American water spaniel:
 
       Personality: Happy, eager, and charming; aloof with strangers, and a little stubborn
