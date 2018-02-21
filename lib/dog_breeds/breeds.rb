@@ -28,9 +28,8 @@ class DogBreeds::Breeds
     end
   end
 
-  def self.scrape_sporting
+  def scrape_sporting
     doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/sporting/"))
-    binding.pry
     breeds = []
     dogs = doc.css('.event-contain .scale-contents h2')
     dogs.each do |dog|
@@ -41,28 +40,100 @@ class DogBreeds::Breeds
     end
   end
 
-  def self.scrape_hound
+  def scrape_hound
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/hound/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_working
+  def scrape_working
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/working/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_terrier
+  def scrape_terrier
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/terrier/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_toy
+  def scrape_toy
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/toy/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_non_sporting
+  def scrape_non_sporting
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/non-sporting/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_herding
+  def scrape_herding
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/herding/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_misc
+  def scrape_misc
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/miscellaneous-class/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
-  def self.scrape_fss
+  def scrape_fss
+    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/foundation-stock-service/"))
+    breeds = []
+    dogs = doc.css('.event-contain .scale-contents h2')
+    dogs.each do |dog|
+      breeds << dog.css('a[href]').text
+    end
+    breeds.each_with_index do |breed, number|
+      puts "#{number + 1}. #{breed}"
+    end
   end
 
 end
