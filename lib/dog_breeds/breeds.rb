@@ -1,9 +1,10 @@
 class DogBreeds::Breeds
+  attr_accessor :group_number, :breed_number
 
   def initialize
     puts "Which group of breeds would you like to see?"
-    input = gets.strip
-    case input
+    @group_number = gets.strip
+    case @group_number
     when "1"
       self.scrape_sporting
     when "2"
@@ -26,6 +27,8 @@ class DogBreeds::Breeds
     puts "Invalid entry. Please enter the number of the group you'd like to see."
     #Need to cycle back through and list groups and allow choice
     end
+    puts "Which breed would you like more information on?"
+    @breed_number = gets.strip
   end
 
   def scrape_sporting
