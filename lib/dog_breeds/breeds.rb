@@ -4,7 +4,6 @@ class DogBreeds::Breeds
   def self.list
     puts "Which group of breeds would you like to see?"
     @group_number = gets.strip
-    #Creates instance variable of the number of the group chosen.
     case @group_number
     when "1"
       scrape_sporting
@@ -52,13 +51,12 @@ class DogBreeds::Breeds
         puts "#{number + 1}. #{breed}"
       end
     else
-    puts "Invalid entry. Please enter the number of the group you'd like to see."
-    #Need to cycle back through and list groups and allow choice
+      puts "Invalid entry. Please enter the number of the group you'd like to see."
+      self.list
     end
     puts "Which breed would you like more information on?"
     @breed_number = gets.strip
     DogBreeds::BreedDetails.get_url(@group_number, @breed_number)
-    #Creates instance variable of the number of the breed chosen.
   end
 
   def self.scrape_sporting
