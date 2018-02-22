@@ -1,8 +1,7 @@
 class DogBreeds::BreedDetails
-  attr_reader @fixed_url
+  attr_reader :fixed_url
 
   def self.get_url(group, breed)
-    binding.pry
     case group
     when "1"
       breed_list = DogBreeds::Breeds.scrape_sporting
@@ -59,35 +58,23 @@ class DogBreeds::BreedDetails
       url = dog_url[0]['href']
       @fixed_url = "http://www.akc.org" + url
     end
+    details(@fixed_url)
   end
 
-
-
-
-
-
-    # case input
-    # when "1"
-    #   puts <<~DOC
-    #
-    #   American water spaniel:
-    #
-    #   Personality: Happy, eager, and charming; aloof with strangers, and a little stubborn
-    #   Energy Level: Very Active; Upbeat AWS are outdoorsy athletes who love hunting and swimming
-    #   Good with Children: Better with Supervision
-    #   Good with other Dogs: With Supervision
-    #   Shedding: Infrequent
-    #   Grooming: Weekly
-    #   Trainability: Eager To Please
-    #   Height: 15-18 inches
-    #   Weight: 30-45 pounds (male), 25-40 pounds (female)
-    #   Life Expectancy: 10-14 years
-    #   Barking Level: Barks When Necessary
-    #   DOC
-    # else
-    #   puts "Invalid entry. Please enter the number of the breed you'd like to learn about."
-    #   #Need to cycle back through.
-    # end
-
+  def self.details(fixed_url)
+    doc = Nokogiri::HTML(open("#{fixed_url}"))
+    breed_info = []
+    details = doc.css('.breed-details__main ul li')
+    details.each do |detail|
+      breed_info << detail.text
+    end
+    #binding.pry
+    if breed_info == []
+      puts "The American Kennel Club does not provide any further information on this breed at this time."
+    else breed_info.each do |info|
+      puts info
+    end
+    end
+  end
 
 end
