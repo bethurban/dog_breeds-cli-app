@@ -73,7 +73,6 @@ class DogBreeds::BreedDetails
       details.each do |detail|
         breed_info << detail.text
       end
-
         if breed_info != []
           breed_info.each do |info|
             puts info
