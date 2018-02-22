@@ -1,6 +1,7 @@
 class DogBreeds::BreedDetails
+  attr_reader @fixed_url
 
-  def self.details(group, breed)
+  def self.get_url(group, breed)
     binding.pry
     case group
     when "1"
@@ -8,11 +9,56 @@ class DogBreeds::BreedDetails
       dog = breed_list[breed.to_i - 1]
       dog_url = dog.css('a')
       url = dog_url[0]['href']
-      #Need to go into breed_list and find the breed corresponding to breed variable.
-      #Need to scrape breed URL from that breed in breed_list.
-      #Then need to scrape breed details from that breed URL.
+      @fixed_url = "http://www.akc.org" + url
+    when "2"
+      breed_list = DogBreeds::Breeds.scrape_hound
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "3"
+      breed_list = DogBreeds::Breeds.scrape_working
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "4"
+      breed_list = DogBreeds::Breeds.scrape_terrier
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "5"
+      breed_list = DogBreeds::Breeds.scrape_toy
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "6"
+      breed_list = DogBreeds::Breeds.scrape_non_sporting
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "7"
+      breed_list = DogBreeds::Breeds.scrape_herding
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "8"
+      breed_list = DogBreeds::Breeds.scrape_misc
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
+    when "9"
+      breed_list = DogBreeds::Breeds.scrape_fss
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      @fixed_url = "http://www.akc.org" + url
     end
-
   end
 
 

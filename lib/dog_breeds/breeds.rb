@@ -33,7 +33,7 @@ class DogBreeds::Breeds
     end
     puts "Which breed would you like more information on?"
     @breed_number = gets.strip
-    DogBreeds::BreedDetails.details(@group_number, @breed_number)
+    DogBreeds::BreedDetails.get_url(@group_number, @breed_number)
     #Creates instance variable of the number of the breed chosen.
   end
 
