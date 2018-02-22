@@ -1,8 +1,19 @@
 class DogBreeds::BreedDetails
 
-  def details(group, breed)
-    # case group
-    # when "1"
+  def self.details(group, breed)
+    binding.pry
+    case group
+    when "1"
+      breed_list = DogBreeds::Breeds.scrape_sporting
+      dog = breed_list[breed.to_i - 1]
+      dog_url = dog.css('a')
+      url = dog_url[0]['href']
+      #Need to go into breed_list and find the breed corresponding to breed variable.
+      #Need to scrape breed URL from that breed in breed_list.
+      #Then need to scrape breed details from that breed URL.
+    end
+
+  end
 
 
 
@@ -31,6 +42,6 @@ class DogBreeds::BreedDetails
     #   puts "Invalid entry. Please enter the number of the breed you'd like to learn about."
     #   #Need to cycle back through.
     # end
-  end
+
 
 end

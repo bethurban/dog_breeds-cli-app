@@ -9,8 +9,8 @@ class DogBreeds::Breeds
     when "1"
       scrape_sporting
       @breeds.each_with_index do |breed, number|
-         puts "#{number + 1}. #{breed}"
-       end
+        puts "#{number + 1}. #{breed}"
+      end
     when "2"
       scrape_hound
     when "3"
@@ -40,10 +40,11 @@ class DogBreeds::Breeds
   def self.scrape_sporting
     doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/sporting/"))
     @breeds = []
-    dogs = doc.css('.event-contain .scale-contents h2')
-    dogs.each do |dog|
+    @dogs = doc.css('.event-contain .scale-contents h2')
+    @dogs.each do |dog|
       @breeds << dog.css('a[href]').text
     end
+    @dogs
     # @breeds.each_with_index do |breed, number|
     #   puts "#{number + 1}. #{breed}"
     # end
