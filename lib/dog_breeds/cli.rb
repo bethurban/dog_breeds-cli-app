@@ -5,8 +5,7 @@ class DogBreeds::CLI
     puts "Welcome!"
     while input != "N"
       list_groups
-      list_breeds
-      breed_info
+      breeds
       puts ""
       puts "Do you want to learn about another breed? (Y/N)"
       input = gets.strip.upcase
@@ -15,15 +14,11 @@ class DogBreeds::CLI
   end
 
   def list_groups
-    @groups = DogBreeds::Groups.new
+    @groups = DogBreeds::Groups.list
   end
 
-  def list_breeds
-    @breeds = DogBreeds::Breeds.new
-  end
-
-  def breed_info
-    @breed_details = DogBreeds::BreedDetails.new
+  def breeds
+    @breeds = DogBreeds::Breeds.list
   end
 
   def goodbye
