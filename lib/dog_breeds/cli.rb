@@ -3,10 +3,9 @@ class DogBreeds::CLI
   def call
     input = nil
     puts "Welcome!\n\n"
-    #puts ""
     while input != "N"
       list_groups
-      breeds
+      list_breeds
       pick_breed
       puts ""
       puts "Do you want to learn about another breed? (Y/N)"
@@ -16,11 +15,11 @@ class DogBreeds::CLI
   end
 
   def list_groups
-    @groups = DogBreeds::Groups.list
+    DogBreeds::Groups.list
   end
 
-  def breeds
-    @breeds = DogBreeds::Breeds.list
+  def list_breeds
+    DogBreeds::Breeds.list
   end
 
   def pick_breed

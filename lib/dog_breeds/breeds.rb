@@ -42,7 +42,7 @@ class DogBreeds::Breeds
         puts "#{number + 1}. #{breed}"
       end
     else
-      puts "\n\nInvalid entry. Please enter a valid group number."
+      puts "\nInvalid entry. Please enter a valid group number."
       DogBreeds::Groups.list
       self.list
     end
@@ -50,7 +50,7 @@ class DogBreeds::Breeds
 
   def self.pick_breed(group_number = "")
     group_number = @@group_number
-    puts "\nWhich breed would you like more information on?"
+    puts "\nWhich breed would you like more information on? (Enter the breed's number.)"
     @breed_number = gets.strip
     DogBreeds::BreedDetails.get_url(@@group_number, @breed_number)
   end
