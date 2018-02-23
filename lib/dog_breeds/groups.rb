@@ -13,8 +13,7 @@ class DogBreeds::Groups
     5. #{@@group_fixed_array[4]}
     6. #{@@group_fixed_array[5]}
     7. #{@@group_fixed_array[6]}
-    8. #{@@group_fixed_array[7]}
-    9. #{@@group_fixed_array[8]}
+    
     DOC
   end
 
@@ -37,10 +36,6 @@ class DogBreeds::Groups
     @@group_fixed_array << group_6
     group_7 = groups_array[13] + groups_array[14]
     @@group_fixed_array << group_7
-    group_8 = groups_array[15] + groups_array[16]
-    @@group_fixed_array << group_8
-    group_9 = groups_array[17] + groups_array[18] + groups_array[19]
-    @@group_fixed_array << group_9
   end
 
 end

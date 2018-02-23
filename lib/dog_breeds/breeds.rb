@@ -2,7 +2,7 @@ class DogBreeds::Breeds
   attr_accessor :group_number, :breed_number
 
   def self.list
-    puts "Which group of breeds would you like to see?"
+    puts "Which group of breeds would you like to see? (1-7)"
     @group_number = gets.strip
     case @group_number
     when "1"
@@ -40,20 +40,13 @@ class DogBreeds::Breeds
       @breeds.each_with_index do |breed, number|
         puts "#{number + 1}. #{breed}"
       end
-    when "8"
-      scrape_misc
-      @breeds.each_with_index do |breed, number|
-        puts "#{number + 1}. #{breed}"
-      end
-    when "9"
-      scrape_fss
-      @breeds.each_with_index do |breed, number|
-        puts "#{number + 1}. #{breed}"
-      end
     else
-      puts "Invalid entry. Please enter the number of the group you'd like to see."
+      puts ""
+      puts "Invalid entry. Please enter a valid group number."
+      DogBreeds::Groups.list
       self.list
     end
+    puts ""
     puts "Which breed would you like more information on?"
     @breed_number = gets.strip
     DogBreeds::BreedDetails.get_url(@group_number, @breed_number)
@@ -121,26 +114,6 @@ class DogBreeds::Breeds
 
   def self.scrape_herding
     doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/herding/"))
-    @breeds = []
-    @dogs = doc.css('.event-contain .scale-contents h2')
-    @dogs.each do |dog|
-      @breeds << dog.css('a[href]').text
-    end
-    @dogs
-  end
-
-  def self.scrape_misc
-    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/miscellaneous-class/"))
-    @breeds = []
-    @dogs = doc.css('.event-contain .scale-contents h2')
-    @dogs.each do |dog|
-      @breeds << dog.css('a[href]').text
-    end
-    @dogs
-  end
-
-  def self.scrape_fss
-    doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/foundation-stock-service/"))
     @breeds = []
     @dogs = doc.css('.event-contain .scale-contents h2')
     @dogs.each do |dog|

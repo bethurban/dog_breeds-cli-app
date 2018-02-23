@@ -3,6 +3,7 @@ class DogBreeds::CLI
   def call
     input = nil
     puts "Welcome!"
+    puts ""
     while input != "N"
       list_groups
       breeds

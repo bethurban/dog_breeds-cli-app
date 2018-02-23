@@ -45,18 +45,6 @@ class DogBreeds::BreedDetails
       dog_url = dog.css('a')
       url = dog_url[0]['href']
       @fixed_url = "http://www.akc.org" + url
-    when "8"
-      breed_list = DogBreeds::Breeds.scrape_misc
-      dog = breed_list[breed.to_i - 1]
-      dog_url = dog.css('a')
-      url = dog_url[0]['href']
-      @fixed_url = "http://www.akc.org" + url
-    when "9"
-      breed_list = DogBreeds::Breeds.scrape_fss
-      dog = breed_list[breed.to_i - 1]
-      dog_url = dog.css('a')
-      url = dog_url[0]['href']
-      @fixed_url = "http://www.akc.org" + url
     end
     details(@fixed_url)
   end
