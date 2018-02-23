@@ -64,24 +64,13 @@ class DogBreeds::BreedDetails
   def self.details(fixed_url)
     doc = Nokogiri::HTML(open("#{fixed_url}"))
     breed_info = []
+#binding.pry
+    details = doc.css('.breed-details .breed-details__main').text
 
-    #Accounting for the two structures of breed page HTML.
-    details = doc.css('.breed-details__main ul li')
-    details1 = doc.css('.breed-details .breed-details__main').text
-
-    if details != [] && details1 == ""
-      details.each do |detail|
-        breed_info << detail.text
-      end
-        if breed_info != []
-          breed_info.each do |info|
-            puts info
-          end
-        else
-          puts "The American Kennel Club does not provide any further information on this breed at this time."
-        end
+    if details != ""
+      puts details
     else
-      puts details1
+      puts "The American Kennel Club does not provide any further information on this breed at this time."
     end
   end
 
