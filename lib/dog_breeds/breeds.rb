@@ -1,10 +1,12 @@
 class DogBreeds::Breeds
   attr_accessor :group_number, :breed_number
 
+  @@group_number = ""
+
   def self.list
     puts "Which group of breeds would you like to see? (1-7)"
-    @group_number = gets.strip
-    case @group_number
+    @@group_number = gets.strip
+    case @@group_number
     when "1"
       scrape_sporting
       @breeds.each_with_index do |breed, number|
@@ -45,13 +47,15 @@ class DogBreeds::Breeds
       puts "Invalid entry. Please enter a valid group number."
       DogBreeds::Groups.list
       self.list
-      #Why does this cycle through the next step (which breed) twice?
     end
+  end
+
+  def self.pick_breed(group_number = "")
+    group_number = @@group_number
     puts ""
     puts "Which breed would you like more information on?"
-    #Need a loop of some kind if user enters a number outside correct range.
     @breed_number = gets.strip
-    DogBreeds::BreedDetails.get_url(@group_number, @breed_number)
+    DogBreeds::BreedDetails.get_url(@@group_number, @breed_number)
   end
 
   def self.scrape_sporting

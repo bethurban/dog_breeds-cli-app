@@ -7,6 +7,7 @@ class DogBreeds::CLI
     while input != "N"
       list_groups
       breeds
+      pick_breed
       puts ""
       puts "Do you want to learn about another breed? (Y/N)"
       input = gets.strip.upcase
@@ -20,6 +21,10 @@ class DogBreeds::CLI
 
   def breeds
     @breeds = DogBreeds::Breeds.list
+  end
+
+  def pick_breed
+    DogBreeds::Breeds.pick_breed
   end
 
   def goodbye

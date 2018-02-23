@@ -60,7 +60,6 @@ class DogBreeds::BreedDetails
     if details != ""
       puts ""
       puts "#{details}"
-      #Why are the details indented in CLI?
     else
       puts "The American Kennel Club does not provide any further information on this breed at this time."
     end
