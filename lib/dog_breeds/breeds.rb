@@ -1,5 +1,4 @@
 class DogBreeds::Breeds
-  attr_accessor :group_number, :breed_number
 
   @@group_number = ""
 
@@ -43,8 +42,7 @@ class DogBreeds::Breeds
         puts "#{number + 1}. #{breed}"
       end
     else
-      puts ""
-      puts "Invalid entry. Please enter a valid group number."
+      puts "\n\nInvalid entry. Please enter a valid group number."
       DogBreeds::Groups.list
       self.list
     end
@@ -52,8 +50,7 @@ class DogBreeds::Breeds
 
   def self.pick_breed(group_number = "")
     group_number = @@group_number
-    puts ""
-    puts "Which breed would you like more information on?"
+    puts "\nWhich breed would you like more information on?"
     @breed_number = gets.strip
     DogBreeds::BreedDetails.get_url(@@group_number, @breed_number)
   end

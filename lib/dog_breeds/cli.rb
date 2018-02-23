@@ -2,8 +2,8 @@ class DogBreeds::CLI
 
   def call
     input = nil
-    puts "Welcome!"
-    puts ""
+    puts "Welcome!\n\n"
+    #puts ""
     while input != "N"
       list_groups
       breeds
@@ -28,6 +28,6 @@ class DogBreeds::CLI
   end
 
   def goodbye
-    puts "Woof! See you next time!"
+    puts "\nWoof! See you next time!"
   end
 end
