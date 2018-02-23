@@ -45,9 +45,11 @@ class DogBreeds::Breeds
       puts "Invalid entry. Please enter a valid group number."
       DogBreeds::Groups.list
       self.list
+      #Why does this cycle through the next step (which breed) twice?
     end
     puts ""
     puts "Which breed would you like more information on?"
+    #Need a loop of some kind if user enters a number outside correct range.
     @breed_number = gets.strip
     DogBreeds::BreedDetails.get_url(@group_number, @breed_number)
   end

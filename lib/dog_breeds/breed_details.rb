@@ -54,10 +54,13 @@ class DogBreeds::BreedDetails
     breed_info = []
 
     details = doc.css('.breed-details .breed-details__main').text
+    details.delete! "\t"
+    details = details.strip
 
     if details != ""
       puts ""
       puts "#{details}"
+      #Why are the details indented in CLI?
     else
       puts "The American Kennel Club does not provide any further information on this breed at this time."
     end
