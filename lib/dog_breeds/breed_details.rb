@@ -51,16 +51,16 @@ class DogBreeds::BreedDetails
 
   def self.details(fixed_url)
     doc = Nokogiri::HTML(open("#{fixed_url}"))
-    breed_info = []
 
     details = doc.css('.breed-details .breed-details__main').text
     details.delete! "\t"
-    details = details.strip
+    details.strip!
 
     if details != ""
-      puts ""
+      puts "\n#{doc.css('.feed-class article h1').text}"
       puts "#{details}"
     else
+      puts "\n#{doc.css('.feed-class article h1').text}"
       puts "The American Kennel Club does not provide any further information on this breed at this time."
     end
   end
