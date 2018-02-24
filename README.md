@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run using ./bin/dog-breeds. Choose a dog breed group by entering the number of the group. Then choose
+a breed from that group by entering the breed's number. Users will then see characteristics of the
+chosen dog breed. Finally, enter 'Y' to learn about a different dog breed or 'N' to exit the program.
 
 ## Development
 
