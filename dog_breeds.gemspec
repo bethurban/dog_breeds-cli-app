@@ -9,8 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["<bethurban>"]
   spec.email         = ["<beth.urban@gmail.com>"]
 
-  spec.summary       = "Write a short summary, because RubyGems requires one."
-  spec.description   = "Write a longer description or delete this line."
+  spec.summary       = "Users can get more info on American Kennel Club dog breeds."
+  spec.description   = "Users can see which dog breeds are in each American Kennel Club groups
+  and get more details on the characteristics of each breed."
   spec.homepage      =
   spec.license       = 
 

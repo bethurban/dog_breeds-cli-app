@@ -1,8 +1,8 @@
 # DogBreeds
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dog_breeds`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the DogBreeds gem! This program shows the user a list of the American
+Kennel Club's groups of dog breeds. The user can see all of the breeds within a
+chosen group and then get details on the characteristics of each breed.
 
 ## Installation
 
