@@ -13,7 +13,7 @@ class DogBreeds::Groups
     5. #{@@group_fixed_array[4]}
     6. #{@@group_fixed_array[5]}
     7. #{@@group_fixed_array[6]}
-    
+
     DOC
   end
 
@@ -22,6 +22,8 @@ class DogBreeds::Groups
     groups = doc.css('.side-nav ul')[1]
     groups_string = groups.css('li').text
     groups_array = groups_string.split(/(?=[A-Z])/)
+    #groups_array has each group name split into separate strings, so we combine them below
+    #["Sporting ", "Group"] becomes ["Sporting Group"]
     group_1 = groups_array[0] + groups_array[1]
     @@group_fixed_array << group_1
     group_2 = groups_array[2] + groups_array[3]

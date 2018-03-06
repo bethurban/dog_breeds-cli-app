@@ -59,9 +59,12 @@ class DogBreeds::Breeds
     doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/groups/sporting/"))
     @breeds = []
     @dogs = doc.css('.event-contain .scale-contents h2')
+    #@dogs instance variable gives you XML of all the dogs in the group, which is
+    #used in the BreedDetails class to scrape the chosen breed's individual URL
     @dogs.each do |dog|
       @breeds << dog.css('a[href]').text
     end
+    #@breeds is an array of strings of all the breeds in the group
     @dogs
   end
 
