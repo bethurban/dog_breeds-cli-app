@@ -15,7 +15,18 @@ class DogBreeds::CLI
   end
 
   def list_groups
-    DogBreeds::Groups.list
+    groups = DogBreeds::Groups.scrape_groups
+    puts "These are the American Kennel Club's groups of dog breeds:"
+    puts <<~DOC
+    1. #{groups[0]}
+    2. #{groups[1]}
+    3. #{groups[2]}
+    4. #{groups[3]}
+    5. #{groups[4]}
+    6. #{groups[5]}
+    7. #{groups[6]}
+
+    DOC
   end
 
   def list_breeds

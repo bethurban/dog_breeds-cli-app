@@ -2,21 +2,6 @@ class DogBreeds::Groups
 
   @@group_fixed_array = []
 
-  def self.list
-    scrape_groups
-    puts "These are the American Kennel Club's groups of dog breeds:"
-    puts <<~DOC
-    1. #{@@group_fixed_array[0]}
-    2. #{@@group_fixed_array[1]}
-    3. #{@@group_fixed_array[2]}
-    4. #{@@group_fixed_array[3]}
-    5. #{@@group_fixed_array[4]}
-    6. #{@@group_fixed_array[5]}
-    7. #{@@group_fixed_array[6]}
-
-    DOC
-  end
-
   def self.scrape_groups
     doc = Nokogiri::HTML(open("http://www.akc.org/dog-breeds/"))
     groups = doc.css('.side-nav ul')[1]
@@ -38,6 +23,8 @@ class DogBreeds::Groups
     @@group_fixed_array << group_6
     group_7 = groups_array[13] + groups_array[14]
     @@group_fixed_array << group_7
+
+    @@group_fixed_array
   end
 
 end
